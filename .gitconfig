@@ -1,0 +1,8 @@
+[pull]
+	rebase = true
+[user]
+	email = federico.santander@uber.com
+	name = Federico Santander
+[core]
+	editor = nvim
+	excludesfile = /Users/federico.santander/.gitignore-global

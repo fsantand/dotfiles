@@ -1,0 +1,5 @@
+**/python-version
+**/pyrightconfig.json
+**/.flake8
+**/typestubs/**
+
