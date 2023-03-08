@@ -128,7 +128,4 @@ export NVM_DIR="$HOME/.config/nvm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-
-source /Users/federico.santander/.config/broot/launcher/bash/br
+alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
