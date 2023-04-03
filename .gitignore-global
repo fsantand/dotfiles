@@ -1,3 +1,5 @@
+**/tags/**
+**/tags
 **/python-version
 **/pyrightconfig.json
 **/.flake8
