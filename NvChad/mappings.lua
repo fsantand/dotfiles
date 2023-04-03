@@ -1,7 +1,12 @@
 ---@type MappingsTable
 local M = {}
 
-M.general = {}
+M.general = {
+  n = {
+    ["<C-d>"] = { "<C-d>zz", "move half page" },
+    ["<C-u>"] = { "<C-u>zz", "move half page" },
+  }
+}
 
 M.telescope = {
   n = {
