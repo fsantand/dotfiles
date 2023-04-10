@@ -48,7 +48,8 @@ local plugins = {
   },
 
   {
-    "tpope/vim-surround"
+    "tpope/vim-surround",
+    lazy = false
   },
 
   {

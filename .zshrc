@@ -159,3 +159,4 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias ls="lsd"
 
 alias ghreq="gh pr list -S \"review-requested:@me\" | bat"
+alias rmswap="rm ~/.local/state/nvim/swap/*"
