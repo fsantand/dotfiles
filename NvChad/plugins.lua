@@ -37,7 +37,10 @@ local plugins = {
    "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
-
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = overrides.telescope,
+  },
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
@@ -90,6 +93,13 @@ local plugins = {
   {
     "NvChad/nvterm",
     enabled = false
+  },
+  {
+    "natecraddock/workspaces.nvim",
+    lazy = false,
+    config = function ()
+      require("workspaces").setup()
+    end
   }
 }
 

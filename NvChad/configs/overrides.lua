@@ -12,6 +12,8 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    "go",
+    "python",
   },
   indent = {
     enable = true,
@@ -34,7 +36,11 @@ M.mason = {
     "html-lsp",
     "typescript-language-server",
     "deno",
-    "prettier"
+    "prettier",
+
+    "gopls",
+    "pyright",
+    "emmet-ls"
   },
 }
 
@@ -55,6 +61,15 @@ M.nvimtree = {
 
   view = {
     side = "right"
+  }
+}
+
+M.telescope = {
+  extensions_list = { "workspaces" },
+  extensions = {
+    workspaces = {
+      keep_insert = false,
+    }
   }
 }
 

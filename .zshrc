@@ -90,6 +90,7 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+export EDITOR='nvim'
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -160,3 +161,6 @@ alias ls="lsd"
 
 alias ghreq="gh pr list -S \"review-requested:@me\" | bat"
 alias rmswap="rm ~/.local/state/nvim/swap/*"
+
+export PATH="/opt/homebrew/opt/thrift@0.9/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_371)
