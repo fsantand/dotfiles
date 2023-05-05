@@ -100,6 +100,10 @@ local plugins = {
     config = function ()
       require("workspaces").setup()
     end
+  },
+  {
+    "direnv/direnv.vim",
+    lazy = false,
   }
 }
 

@@ -164,3 +164,6 @@ alias rmswap="rm ~/.local/state/nvim/swap/*"
 
 export PATH="/opt/homebrew/opt/thrift@0.9/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_371)
+
+echo -e "`date +"%Y-%m-%d %H:%M:%S"` direnv hooking zsh"
+eval "$(direnv hook zsh)"

@@ -65,7 +65,7 @@ M.nvimtree = {
 }
 
 M.telescope = {
-  extensions_list = { "workspaces" },
+  extensions_list = { "workspaces", "themes" },
   extensions = {
     workspaces = {
       keep_insert = false,
