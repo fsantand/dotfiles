@@ -163,7 +163,12 @@ alias ghreq="gh pr list -S \"review-requested:@me\" | bat"
 alias rmswap="rm ~/.local/state/nvim/swap/*"
 
 export PATH="/opt/homebrew/opt/thrift@0.9/bin:$PATH"
+unset JAVA_HOME
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_371)
+export JAVA8_HOME="$(/usr/libexec/java_home -v1.8.0_371)"
+export JAVA11_HOME="$(/usr/libexec/java_home -v11)"
+alias jdk_11='export JAVA_HOME="$JAVA11_HOME" && export PATH="$JAVA_HOME/bin:$PATH"'
+alias jdk_8='export JAVA_HOME="$JAVA8_HOME" && export PATH="$JAVA_HOME/bin:$PATH"'
 
 echo -e "`date +"%Y-%m-%d %H:%M:%S"` direnv hooking zsh"
 eval "$(direnv hook zsh)"

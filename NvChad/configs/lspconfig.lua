@@ -6,7 +6,7 @@ local navic = require "nvim-navic"
 
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "pyright", "gopls", "emmet_ls" }
+local servers = { "html", "cssls", "tsserver", "clangd", "pyright", "gopls", "emmet_ls", "jdtls" }
 
 local function on_attach_custom (client, bufnr)
   on_attach(client, bufnr)
