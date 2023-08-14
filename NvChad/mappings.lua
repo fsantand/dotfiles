@@ -5,6 +5,7 @@ M.general = {
   n = {
     ["<C-d>"] = { "<C-d>zz", "move half page" },
     ["<C-u>"] = { "<C-u>zz", "move half page" },
+    ["<leader>yd"] = {":let @+=@%<CR>", "copy current buffer dir to clipboard"}
   }
 }
 
@@ -23,7 +24,15 @@ M.telescope = {
     ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "find keymaps" },
     ["<leader>pw"] = { "<cmd> Telescope workspaces <CR>", "find workspaces" },
     ["<leader>pb"] = { "<cmd> Telescope git_branches <CR>", "find branches" },
+    ["<F9>"] = { "<cmd> cp <CR>", "find branches" },
   },
+}
+
+M.fzf = {
+  n = {
+    ["<leader>ff"] = { "<cmd> FzfLua files git_icons=false <CR>", "find files" },
+    ["<leader>fs"] = { "<cmd> FzfLua live_grep git_icons=false <CR>", "live grep" },
+  }
 }
 
 M.symbolsoutline = {
@@ -41,6 +50,18 @@ M.lspconfig = {
       "floating diagnostic",
     },
 
+  }
+}
+
+M.fugitive = {
+  n = {
+    ["<F8>"] = {":G <CR>", "open fugitive status"}
+  }
+}
+
+M.gitsigns = {
+  n = {
+    ["<leader>tb"] = { "<cmd> Gitsigns toggle_current_line_blame<CR>"}
   }
 }
 

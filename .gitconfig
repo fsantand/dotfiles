@@ -6,6 +6,7 @@
 [core]
 	editor = nvim
 	excludesfile = /Users/federico.santander/.gitignore-global
+	untrackedCache = true
 [url "ssh://code.uber.internal/"]
 	insteadOf = https://code.uber.internal/
 [url "ssh://config.uber.internal/"]

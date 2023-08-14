@@ -31,6 +31,11 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "syntax")
+      require("nvim-treesitter.configs").setup(opts)
+      require("custom.configs.treesitter")
+    end
   },
 
   {
@@ -104,6 +109,40 @@ local plugins = {
   {
     "direnv/direnv.vim",
     lazy = false,
+  },
+  {
+    "ibhagwan/fzf-lua",
+    lazy = false,
+    config =  function ()
+      require("fzf-lua").setup{"telescope", winopts={preview={default="bat"}}}
+    end
+  },
+  {
+    "nvim-treesitter/playground",
+    lazy=false,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter"
+    },
+    config = function ()
+      require "nvim-treesitter.configs".setup{}
+    end
+  },
+  {
+    "j-hui/fidget.nvim",
+    lazy=false,
+    dependencies={
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("fidget").setup{}
+    end
+  },
+  {
+    "mfussenegger/nvim-jdtls",
+    ft = "java",
+    config = function ()
+      require "custom.configs.jdtls"
+    end
   }
 }
 

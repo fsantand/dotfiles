@@ -21,6 +21,9 @@ M.treesitter = {
     --   "python"
     -- },
   },
+  injections = {
+    module_path = "custom.queries"
+  },
 
   auto_install = true,
 }
@@ -51,17 +54,19 @@ M.nvimtree = {
   },
 
   renderer = {
+    group_empty = true,
     highlight_git = true,
     icons = {
+      glyphs = {
+        folder = {
+          default = "󰉋"
+        }
+      },
       show = {
         git = true,
       },
     },
   },
-
-  view = {
-    side = "right"
-  }
 }
 
 M.telescope = {

@@ -1,10 +1,15 @@
-#
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+export XTERM="xterm-256color"
+
+(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv export zsh)"
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv hook zsh)"
 
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
@@ -167,8 +172,26 @@ unset JAVA_HOME
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_371)
 export JAVA8_HOME="$(/usr/libexec/java_home -v1.8.0_371)"
 export JAVA11_HOME="$(/usr/libexec/java_home -v11)"
+export JAVA17_HOME="$(/usr/libexec/java_home -v17)"
+alias jdk_17='export JAVA_HOME="$JAVA17_HOME" && export PATH="$JAVA_HOME/bin:$PATH"'
 alias jdk_11='export JAVA_HOME="$JAVA11_HOME" && export PATH="$JAVA_HOME/bin:$PATH"'
 alias jdk_8='export JAVA_HOME="$JAVA8_HOME" && export PATH="$JAVA_HOME/bin:$PATH"'
 
-echo -e "`date +"%Y-%m-%d %H:%M:%S"` direnv hooking zsh"
-eval "$(direnv hook zsh)"
+export CASSANDRA_HOME='/home/federico.santander/apache-cassandra-3.0.10/bin'
+export PATH="$CASSANDRA_HOME:$PATH"
+
+cass_ssh() {
+  CASS_LOCAL_PORT=9042
+ 
+  ### Finding Cassandra host and port ###
+  CASS_UNS_PATH=udg://devpurpose-only
+  CASS_HOST=$(uns $CASS_UNS_PATH | head -1 | awk '{print $2}')
+  CASS_PORT=$(uns $CASS_UNS_PATH | head -1 | awk '{print $3}' | cut -d: -f2)
+ 
+  set -x
+  ### create SSH tunnel through Uber bastion
+  ssh -N -L $CASS_LOCAL_PORT:$CASS_HOST:$CASS_PORT bastion.uber.com
+}
+ 
+alias cass_cqlsh='( cd ~/apache-cassandra-3.0.10/bin && ./cqlsh -u dev -p N3jdzUvZo1dD localhost 9042 )'
+

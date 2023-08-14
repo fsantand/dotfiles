@@ -6,7 +6,7 @@ local navic = require "nvim-navic"
 
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "pyright", "gopls", "emmet_ls", "jdtls" }
+local servers = { "html", "cssls", "tsserver", "clangd", "pyright", "gopls", "emmet_ls"}
 
 local function on_attach_custom (client, bufnr)
   on_attach(client, bufnr)
@@ -34,7 +34,7 @@ lspconfig.gopls.setup {
   on_attach = on_attach_custom,
   capabilities = capabilities,
   flags = {
-    debounce_text_changes = 750,
+    debounce_text_changes = 1000,
   },
   init_options = {
     staticcheck = true,
@@ -42,3 +42,5 @@ lspconfig.gopls.setup {
     -- memoryMode = "DegradeClosed"
   }
 }
+
+return {on_attach_custom}
