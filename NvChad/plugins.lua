@@ -34,7 +34,6 @@ local plugins = {
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "syntax")
       require("nvim-treesitter.configs").setup(opts)
-      require("custom.configs.treesitter")
     end
   },
 
@@ -137,13 +136,46 @@ local plugins = {
       require("fidget").setup{}
     end
   },
+  -- Debugger
   {
-    "mfussenegger/nvim-jdtls",
-    ft = "java",
+    "mfussenegger/nvim-dap",
+    lazy=false
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    lazy=false,
+    dependencies={
+      "mfussenegger/nvim-dap"
+    },
     config = function ()
-      require "custom.configs.jdtls"
+      require "custom.configs.dap-ui"
     end
-  }
+  },
+  {
+    "leoluz/nvim-dap-go",
+    lazy=false,
+    dependencies={
+      "mfussenegger/nvim-dap"
+    },
+    config = function ()
+      require "custom.configs.dap-go"
+    end
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    lazy=false,
+    dependencies={
+      "mfussenegger/nvim-dap"
+    }
+  },
+  {
+    "nvim-telescope/telescope-dap.nvim",
+    lazy=false,
+    dependencies={
+      "mfussenegger/nvim-dap",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
 }
 
 return plugins

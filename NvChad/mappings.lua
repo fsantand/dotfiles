@@ -65,4 +65,14 @@ M.gitsigns = {
   }
 }
 
+M.dap = {
+  n = {
+    ["<leader>bt"] = {":lua require'dap'.toggle_breakpoint()<CR>", "Toggle breakpoint"},
+    ["<F5>"] = {":lua require'dap'.continue()<CR>", "Resume execution"},
+    ["<F6"] = {":lua require'dap'.step_into()<CR>", "Next step"},
+    ["<leader>ri"] = {":lua require'dap'.repl.open()<CR>", "Open REPL"},
+    ["<leader>dt"] = {":lua require'dapui'.toggle()<CR>", "Toggle DAP UI"}
+  }
+}
+
 return M

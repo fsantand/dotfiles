@@ -116,82 +116,12 @@ export EDITOR='nvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gpp='git rev-parse --abbrev-ref HEAD | xargs git push --force-with-lease origin '
-alias mun4j='make up-with-neo4j'
-alias rebase='git pull --rebase origin devel'
 bindkey -e
 bindkey '^[[C' forward-word
 bindkey '^[[D' backward-word
 
-function gco() {
-    git checkout devel
-    git pull
-    git checkout $1
-}
-
-function testw() {
-    dev test $1 -p no:warnings
-}
-
-[ -r /Users/federico.santander/.profile_lda ] && . /Users/federico.santander/.profile_lda
-
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
-alias ctags="`brew --prefix`/bin/ctags"
+alias config='git --git-dir=$HOME/.cfg --work-tree=$HOME'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-alias ls="lsd"
-
-alias ghreq="gh pr list -S \"review-requested:@me\" | bat"
-alias rmswap="rm ~/.local/state/nvim/swap/*"
-
-export PATH="/opt/homebrew/opt/thrift@0.9/bin:$PATH"
-unset JAVA_HOME
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_371)
-export JAVA8_HOME="$(/usr/libexec/java_home -v1.8.0_371)"
-export JAVA11_HOME="$(/usr/libexec/java_home -v11)"
-export JAVA17_HOME="$(/usr/libexec/java_home -v17)"
-alias jdk_17='export JAVA_HOME="$JAVA17_HOME" && export PATH="$JAVA_HOME/bin:$PATH"'
-alias jdk_11='export JAVA_HOME="$JAVA11_HOME" && export PATH="$JAVA_HOME/bin:$PATH"'
-alias jdk_8='export JAVA_HOME="$JAVA8_HOME" && export PATH="$JAVA_HOME/bin:$PATH"'
-
-export CASSANDRA_HOME='/home/federico.santander/apache-cassandra-3.0.10/bin'
-export PATH="$CASSANDRA_HOME:$PATH"
-
-cass_ssh() {
-  CASS_LOCAL_PORT=9042
- 
-  ### Finding Cassandra host and port ###
-  CASS_UNS_PATH=udg://devpurpose-only
-  CASS_HOST=$(uns $CASS_UNS_PATH | head -1 | awk '{print $2}')
-  CASS_PORT=$(uns $CASS_UNS_PATH | head -1 | awk '{print $3}' | cut -d: -f2)
- 
-  set -x
-  ### create SSH tunnel through Uber bastion
-  ssh -N -L $CASS_LOCAL_PORT:$CASS_HOST:$CASS_PORT bastion.uber.com
-}
- 
-alias cass_cqlsh='( cd ~/apache-cassandra-3.0.10/bin && ./cqlsh -u dev -p N3jdzUvZo1dD localhost 9042 )'
-
+source /usr/share/nvm/init-nvm.sh
