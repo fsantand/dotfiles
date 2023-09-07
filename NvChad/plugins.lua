@@ -176,6 +176,15 @@ local plugins = {
       "nvim-telescope/telescope.nvim"
     }
   },
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    lazy=false,
+    opts = overrides.neorg,
+    dependencies={
+      "nvim-lua/plenary.nvim",
+    },
+  },
 }
 
 return plugins
