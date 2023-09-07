@@ -21,10 +21,6 @@ M.treesitter = {
     --   "python"
     -- },
   },
-  injections = {
-    module_path = "custom.queries"
-  },
-
   auto_install = true,
 }
 
