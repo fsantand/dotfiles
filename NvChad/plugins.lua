@@ -106,36 +106,22 @@ local plugins = {
     end
   },
   {
-    "direnv/direnv.vim",
-    lazy = false,
-  },
-  {
     "ibhagwan/fzf-lua",
     lazy = false,
     config =  function ()
       require("fzf-lua").setup{"telescope", winopts={preview={default="bat"}}}
     end
   },
-  {
-    "nvim-treesitter/playground",
-    lazy=false,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter"
-    },
-    config = function ()
-      require "nvim-treesitter.configs".setup{}
-    end
-  },
-  {
-    "j-hui/fidget.nvim",
-    lazy=false,
-    dependencies={
-      "neovim/nvim-lspconfig",
-    },
-    config = function()
-      require("fidget").setup{}
-    end
-  },
+  -- {
+  --   "j-hui/fidget.nvim",
+  --   lazy=false,
+  --   dependencies={
+  --     "neovim/nvim-lspconfig",
+  --   },
+  --   config = function()
+  --     require("fidget").setup{}
+  --   end
+  -- },
   -- Debugger
   {
     "mfussenegger/nvim-dap",
@@ -184,6 +170,10 @@ local plugins = {
     dependencies={
       "nvim-lua/plenary.nvim",
     },
+  },
+  {
+    "heavenshell/vim-jsdoc",
+    event = {"BufEnter *.js","BufEnter *.ts"},
   },
 }
 

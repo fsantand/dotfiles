@@ -26,3 +26,7 @@ vim.opt.foldenable=false
 
 vim.g.maplocalleader="\\ "
 
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.norg"},
+  command = "set conceallevel=3"
+})

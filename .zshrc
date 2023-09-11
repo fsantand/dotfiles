@@ -25,3 +25,7 @@ bindkey '^[[D' backward-word
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [[ ! -f ~/.zshrc_aliases ]] || source ~/.zshrc_aliases
 [[ ! -f ~/.zshrc_work ]] || source ~/.zshrc_work
+
+export PATH="/usr/local/sbin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
