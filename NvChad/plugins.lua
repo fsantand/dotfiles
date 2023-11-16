@@ -184,7 +184,6 @@ local plugins = {
     "hrsh7th/nvim-cmp",
     opts = overrides.cmp,
   }
-
 }
 
 return plugins
