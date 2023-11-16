@@ -19,6 +19,7 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
+export BROWSER='google-chrome-unstable'
 bindkey -e
 bindkey '^[[C' forward-word
 bindkey '^[[D' backward-word

@@ -1,8 +1,11 @@
 local wezterm = require "wezterm"
 
 return {
-  font = wezterm.font "JetBrains Mono",
-  font_size = 12,
+  font = wezterm.font_with_fallback {
+    'JetBrains Mono',
+    'JetBrainsMono',
+  },
+  font_size = 10,
   color_scheme = 'DoomOne',
   keys = {
     {

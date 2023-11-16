@@ -95,4 +95,5 @@ M.neorg = {
     ["<leader>jp"] = { "<cmd> Neorg journal tomorrow<CR>", "Check tomorrow journal"},
   }
 }
+
 return M

@@ -84,7 +84,6 @@ M.neorg = {
     ["core.promo"] = {}, -- Listssss
     ["core.dirman"] = { -- Manages Neorg workspaces
       config = {
-        default_workspace="work",
         workspaces = {
           work = "~/notes/work",
           home = "~/notes/home",
