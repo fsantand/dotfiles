@@ -1,0 +1,2 @@
+source ~/.zshrc_shared
+export BROWSER='google-chrome-unstable'
