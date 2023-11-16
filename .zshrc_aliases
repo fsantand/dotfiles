@@ -1,3 +1,4 @@
 alias gpp='git rev-parse --abbrev-ref HEAD | xargs git push --force-with-lease origin '
 alias config='git --git-dir=$HOME/.cfg --work-tree=$HOME'
 alias python="$(which python3.10)"
+alias lls="exa -la"

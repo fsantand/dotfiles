@@ -61,7 +61,8 @@ M.fugitive = {
 
 M.gitsigns = {
   n = {
-    ["<leader>tb"] = { "<cmd> Gitsigns toggle_current_line_blame<CR>"}
+    ["<leader>tb"] = { "<cmd> Gitsigns toggle_current_line_blame<CR>"},
+    ["<leader>sh"] = { "<cmd> Gitsigns stage_hunk<CR>"}
   }
 }
 
@@ -75,4 +76,23 @@ M.dap = {
   }
 }
 
+M.dogedocs = {
+  n = {
+    ["<leader>gc"] = { "<cmd> DogeGenerate<CR>", "Generate docstring"},
+  }
+}
+
+M.oil = {
+  n = {
+    ["-"] = { "<cmd> Oil<CR>", "Open oil docstring"},
+  }
+}
+
+M.neorg = {
+  n = {
+    ["<leader>jl"] = { "<cmd> Neorg journal toc<CR>", "Show all journal entries"},
+    ["<leader>jt"] = { "<cmd> Neorg journal today<CR>", "Check today journal"},
+    ["<leader>jp"] = { "<cmd> Neorg journal tomorrow<CR>", "Check tomorrow journal"},
+  }
+}
 return M

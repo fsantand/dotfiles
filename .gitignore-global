@@ -4,3 +4,4 @@
 **/pyrightconfig.json
 **/.flake8
 **/typestubs/**
+**/.vscode/settings.json

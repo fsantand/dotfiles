@@ -2,9 +2,6 @@ local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
-
-  -- Override plugin definition options
-
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -25,7 +22,8 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
+    cmd = "Mason",
   },
 
   {
@@ -40,10 +38,12 @@ local plugins = {
   {
    "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
+    enabled = false,
   },
   {
     "nvim-telescope/telescope.nvim",
     opts = overrides.telescope,
+    cmd = "Telescope",
   },
   -- Install a plugin
   {
@@ -77,27 +77,21 @@ local plugins = {
   {
     "utilyre/barbecue.nvim",
     name = "barbecue",
-    lazy = false,
+    -- lazy = false,
     dependencies = {
       "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons", -- optional dependency
+      "nvim-tree/nvim-web-devicons",
     },
     opts = {
-      -- configurations go here
     },
-
-    -- To make a plugin not be loaded
-    -- {
-    --   "NvChad/nvim-colorizer.lua",
-    --   enabled = false
-    -- },
-
+    event = "BufRead",
   },
 
   {
     "NvChad/nvterm",
     enabled = false
   },
+
   {
     "natecraddock/workspaces.nvim",
     lazy = false,
@@ -105,76 +99,92 @@ local plugins = {
       require("workspaces").setup()
     end
   },
+
   {
     "ibhagwan/fzf-lua",
-    lazy = false,
     config =  function ()
       require("fzf-lua").setup{"telescope", winopts={preview={default="bat"}}}
-    end
+    end,
+    cmd = "FzfLua"
   },
-  -- {
-  --   "j-hui/fidget.nvim",
-  --   lazy=false,
-  --   dependencies={
-  --     "neovim/nvim-lspconfig",
-  --   },
-  --   config = function()
-  --     require("fidget").setup{}
-  --   end
-  -- },
-  -- Debugger
+
   {
     "mfussenegger/nvim-dap",
-    lazy=false
   },
-  {
-    "rcarriga/nvim-dap-ui",
-    lazy=false,
-    dependencies={
-      "mfussenegger/nvim-dap"
-    },
-    config = function ()
-      require "custom.configs.dap-ui"
-    end
-  },
+
   {
     "leoluz/nvim-dap-go",
-    lazy=false,
+    dependencies={
+      "mfussenegger/nvim-dap"
+    },
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
     dependencies={
       "mfussenegger/nvim-dap"
     },
     config = function ()
-      require "custom.configs.dap-go"
-    end
+      require "custom.configs.dap-config"
+    end,
+    keys = {
+      { "<leader>bt", "<F5>", "<leader>dt" }
+    }
+
   },
+
   {
     "theHamsta/nvim-dap-virtual-text",
-    lazy=false,
     dependencies={
       "mfussenegger/nvim-dap"
     }
   },
+
   {
     "nvim-telescope/telescope-dap.nvim",
-    lazy=false,
     dependencies={
       "mfussenegger/nvim-dap",
       "nvim-telescope/telescope.nvim"
     }
   },
+
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+  },
+
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
-    lazy=false,
     opts = overrides.neorg,
     dependencies={
       "nvim-lua/plenary.nvim",
     },
+    cmd = "Neorg"
   },
+
   {
-    "heavenshell/vim-jsdoc",
-    event = {"BufEnter *.js","BufEnter *.ts"},
+    "kkoomen/vim-doge",
+    event = "BufRead",
+    config = function()
+      vim.cmd([[call doge#install()]])
+    end
   },
+
+  {
+    'stevearc/oil.nvim',
+    lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = overrides.oil,
+    -- config = function()
+    --   require'oil'.setup()
+    -- end
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    opts = overrides.cmp,
+  }
+
 }
 
 return plugins

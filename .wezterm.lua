@@ -3,7 +3,7 @@ local wezterm = require "wezterm"
 return {
   font = wezterm.font "JetBrains Mono",
   font_size = 12,
-  color_scheme = "kanagawabones",
+  color_scheme = 'DoomOne',
   keys = {
     {
       key = "k",

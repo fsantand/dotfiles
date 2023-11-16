@@ -85,13 +85,29 @@ M.neorg = {
     ["core.dirman"] = { -- Manages Neorg workspaces
       config = {
         default_workspace="work",
-        open_last_workspace=true,
         workspaces = {
           work = "~/notes/work",
           home = "~/notes/home",
         },
       },
     },
+  }
+}
+
+M.cmp = {
+  completion = {
+    completeopt = "menu,menuone,noinsert",
+  },
+}
+
+M.oil = {
+  keymaps = {
+    ["<C-h>"] = "",
+    ["<C-v>"] = "actions.select_vsplit",
+    ["<C-s>"] = "actions.select_split",
+  },
+  view_options = {
+    show_hidden = true,
   }
 }
 

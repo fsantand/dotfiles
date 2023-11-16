@@ -5,9 +5,14 @@
 	name = Federico Santander
 [core]
 	editor = nvim
-	excludesfile = /Users/federico.santander/.gitignore-global
+	excludesfile = /Users/$USER/.gitignore-global
 	untrackedCache = true
 [alias]
 	co = checkout
 	ci = commit
 	st = status
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
