@@ -96,4 +96,10 @@ M.neorg = {
   }
 }
 
+M.autosession = {
+  n = {
+    ["<leader>S"] = { "<cmd> SessionSave <CR>", "Save session" },
+  }
+}
+
 return M

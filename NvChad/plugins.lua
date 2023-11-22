@@ -183,6 +183,21 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     opts = overrides.cmp,
+  },
+  {
+    'rmagatti/auto-session',
+    lazy = false,
+    opts = overrides.autosession
+  },
+  {
+    'pwntester/octo.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    opts = overrides.octo,
+    cmd = "Octo"
   }
 }
 

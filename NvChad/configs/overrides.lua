@@ -88,8 +88,14 @@ M.neorg = {
           work = "~/notes/work",
           home = "~/notes/home",
         },
+        default_workspace = "work"
       },
     },
+    -- ["core.journal"] = { -- Manages Neorg workspaces
+    --   config = {
+    --     workspace = "home",
+    --   },
+    -- },
   }
 }
 
@@ -108,6 +114,17 @@ M.oil = {
   view_options = {
     show_hidden = true,
   }
+}
+
+M.autosession = {
+  auto_session_allowed_dirs = {"~/Mach/*"},
+  auto_session_use_git_branch = true,
+  auto_save_enabled = true,
+  auto_restore_enabled = true,
+}
+
+M.octo = {
+
 }
 
 return M
