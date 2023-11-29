@@ -198,6 +198,26 @@ local plugins = {
     },
     opts = overrides.octo,
     cmd = "Octo"
+  },
+  {
+    'Wansmer/treesj',
+    cmd = { 'TSJToggle', 'TSJSplit', 'TSJJoin' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = overrides.treesj,
+  },
+  {
+    'kevinhwang91/nvim-bqf',
+    ft = 'qf',
+    opts = overrides.betterqf
+  },
+  {
+    'f-person/git-blame.nvim',
+    lazy = false,
+    opts = overrides.gitblame,
+  },
+  {
+    'ThePrimeagen/git-worktree.nvim',
+    lazy = false,
   }
 }
 

@@ -66,7 +66,7 @@ M.nvimtree = {
 }
 
 M.telescope = {
-  extensions_list = { "workspaces", "themes" },
+  extensions_list = { "workspaces", "themes", "git_worktree" },
   extensions = {
     workspaces = {
       keep_insert = false,
@@ -123,8 +123,13 @@ M.autosession = {
   auto_restore_enabled = true,
 }
 
-M.octo = {
+M.octo = {}
 
+M.treesj = {}
+
+M.betterqf = {}
+
+M.gitblame = {
 }
 
 return M

@@ -6,7 +6,6 @@
 --   command = "tabdo wincmd =",
 -- })
 vim.opt.mouse = ""
-vim.o.guifont = "JetBrainsMono_Nerd_Font_Propo"
 
 vim.opt.foldmethod="indent"
 vim.opt.foldenable=false

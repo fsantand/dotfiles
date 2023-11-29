@@ -1,7 +1,6 @@
 ---@type ChadrcConfig
 local M = {}
 
--- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
 
 M.ui = {
@@ -12,12 +11,15 @@ M.ui = {
   hl_add = highlights.add,
   tabufline = {
     enabled = false
-  }
+  },
+  statusline = {
+    theme = "default",
+    separator_style = "arrow",
+  },
+  transparency = true,
 }
 
 M.plugins = "custom.plugins"
-
--- check core.mappings for table structure
 M.mappings = require "custom.mappings"
 
 return M

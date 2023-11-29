@@ -55,7 +55,8 @@ M.lspconfig = {
 
 M.fugitive = {
   n = {
-    ["<F8>"] = {":G <CR>", "open fugitive status"}
+    ["<F8>"] = {":G <CR>", "open fugitive status"},
+    ["<leader>gfh"] = {":G log --pretty=format:'%Cred%h%Creset %m %s (%Cgreen%ce%Creset)' -- %<CR>", "Open file history"},
   }
 }
 
